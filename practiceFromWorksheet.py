@@ -55,4 +55,11 @@ def part_one_five(n):
             return True
 
 
-print(part_one_five(0))
+# check for primes under n
+def part_one_six(n):
+    for i in range(n):
+        if part_one_five(i):
+            print(i)
+
+
+part_one_six(10000)
