@@ -69,9 +69,9 @@ def part_one_six(n):
 # makes a table with * at desired spots. n is size of table
 def part_one_seven(n):
     table = []
-    for j in range(1, n+1):
+    for j in range(1, n + 1):
         columns = []
-        for i in range(1, n+1):
+        for i in range(1, n + 1):
             if j % i == 0:
                 columns.append("*")
             else:
@@ -81,3 +81,35 @@ def part_one_seven(n):
     return table
 
 
+# addition function
+def part_two_one(a, b):
+    return a + b
+
+
+# sqrt
+def part_two_two(n):
+    return n ** 2
+
+
+# returns the hypotenuse for a,b right angle triangle
+def part_two_three(a, b):
+    return ((a ** 2) + (b ** 2)) ** 0.5
+
+
+# returns sum of 1/n series
+def part_two_four(n):
+    harm_num = 1
+    for i in range(2, n + 1):
+        harm_num = harm_num + 1 / i
+    return harm_num
+
+
+# return list of harmonic numbers for a list l
+def part_two_five(l):
+    list_of_harm = []
+    for x in l:
+        list_of_harm.append(part_two_four(x))
+    return list_of_harm
+
+
+print(part_two_five([1, 2, 3]))
