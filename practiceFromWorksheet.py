@@ -1,4 +1,4 @@
-from typing import List
+import random
 
 
 def part_one_one(n):
@@ -112,4 +112,27 @@ def part_two_five(l):
     return list_of_harm
 
 
-print(part_two_five([1, 2, 3]))
+# returns avg of array l
+def part_two_six(l):
+    summe = 0
+    for x in l:
+        summe += x
+    return summe/len(l)
+
+
+# switch two index values for list l, and two indexes a,b
+def part_two_seven(l, a, b):
+    la_old = l[a]
+    l[a] = l[b]
+    l[b] = la_old
+    return l
+
+
+# randomize array index values
+def part_two_eight(l):
+    for x in range(len(l)):
+        lx_old = l[x]
+        randomindex = random.randrange(0, len(l))
+        l[x] = l[randomindex]
+        l[randomindex] = lx_old
+    return l
