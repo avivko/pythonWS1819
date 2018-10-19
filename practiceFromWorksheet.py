@@ -46,20 +46,38 @@ def part_one_four(n):
 
 # check for prime number
 def part_one_five(n):
-    assert (isinstance(n, int) or (isinstance(n, float) and n.is_integer())), "Invalid input"
+    assert ((isinstance(n, int) or (isinstance(n, float) and n.is_integer())) and n > 0), "Invalid input"
     int(n)
-    for i in (2, n):
+    for i in range(2, n):
         if n % i == 0:
-            return False
-        else:
-            return True
+            is_prime = False
+            return is_prime
+    if n == 1:
+        is_prime = False
+    else:
+        is_prime = True
+    return is_prime
 
 
 # check for primes under n
 def part_one_six(n):
-    for i in range(n):
+    for i in range(1, n + 1):
         if part_one_five(i):
             print(i)
 
 
-part_one_six(10000)
+# makes a table with * at desired spots. n is size of table
+def part_one_seven(n):
+    table = []
+    for j in range(1, n+1):
+        columns = []
+        for i in range(1, n+1):
+            if j % i == 0:
+                columns.append("*")
+            else:
+                columns.append("")
+            table.append(columns)
+        print(columns)
+    return table
+
+
