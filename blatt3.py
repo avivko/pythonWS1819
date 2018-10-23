@@ -1,4 +1,5 @@
 from random import *
+import numpy as np
 
 
 def rand(m, n):
@@ -24,7 +25,7 @@ def identity(n):
     return matrix
 
 
-def dot(v1,v2):
+def dot_vek(v1, v2):
     assert (len(v1) == len(v2)), "Vectors have different dimensions!"
     dotproduct = 0
     for i in range(len(v1)):
@@ -32,3 +33,54 @@ def dot(v1,v2):
     return dotproduct
 
 
+def transpose(m):
+    transposed_matrix = []
+    for i in range(len(m[0])):
+        row = []
+        for j in range(len(m)):
+            row.append(m[j][i])
+        transposed_matrix.append(row)
+    return transposed_matrix
+
+
+def add(m1, m2):
+    assert len(m1) == len(m2) and len(m1[0]) == len(m2[0]), " matrices have different dimensions"
+    sum_matrix = []
+    for i in range(len(m1)):
+        row = []
+        for j in range(len(m1[0])):
+            row.append(m1[i][j] + m2[i][j])
+        sum_matrix.append(row)
+    return sum_matrix
+
+
+def subtract(m1, m2):
+    assert len(m1) == len(m2) and len(m1[0]) == len(m2[0]), " matrices have different dimensions"
+    sum_matrix = []
+    for i in range(len(m1)):
+        row = []
+        for j in range(len(m1[0])):
+            row.append(m1[i][j] - m2[i][j])
+        sum_matrix.append(row)
+    return sum_matrix
+
+
+def dot_mat(m1, m2):
+    assert len(m1[0]) == len(m2), "Number of columns in the first matrix and the number of rows in the second matrix " \
+                                  "do not match "
+    multiplied_matrix = []
+    for i in range(len(m1)):
+        row = []
+        for j in range(len(m2[0])):
+            summe = 0
+            for x in range(len(m1[0])):
+                summe += m1[i][x] * m2[x][j]
+            row.append(summe)
+        multiplied_matrix.append(row)
+    return multiplied_matrix
+
+
+'''mat1 = [[1,2],[3,4]]
+mat2 = [[1,2,3],[4,5,6]]
+print(mat1, mat2)
+print(dot_mat(mat1, mat2))'''
