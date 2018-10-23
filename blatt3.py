@@ -65,6 +65,17 @@ def subtract(m1, m2):
     return sum_matrix
 
 
+def int_list_to_array_list(x):
+    new_list = []
+    for i in x:
+        if isinstance(i, int):
+            new_list.append([i])
+    if not new_list:
+        return x
+    else:
+        return new_list
+
+
 def dot_mat(m1, m2):
     assert len(m1[0]) == len(m2), "Number of columns in the first matrix and the number of rows in the second matrix " \
                                   "do not match "
@@ -78,9 +89,3 @@ def dot_mat(m1, m2):
             row.append(summe)
         multiplied_matrix.append(row)
     return multiplied_matrix
-
-
-'''mat1 = [[1,2],[3,4]]
-mat2 = [[1,2,3],[4,5,6]]
-print(mat1, mat2)
-print(dot_mat(mat1, mat2))'''
