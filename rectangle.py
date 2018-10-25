@@ -19,7 +19,8 @@ class Rectangle:
     def intersects(self, g):
         times_between_coordinates = 0
         for i in range(2):
-            if min(g.get_corners()[0][i], g.get_corners()[1][i]) <= self._tuple1[i] <= max(g.get_corners()[0][i], g.get_corners()[1][i]):
+            if min(g.get_corners()[0][i], g.get_corners()[1][i]) <= self._tuple1[i] <= \
+                    max(g.get_corners()[0][i], g.get_corners()[1][i]):
                 times_between_coordinates += 1
         if times_between_coordinates == 2:
             return print("Rectangles overlap")
